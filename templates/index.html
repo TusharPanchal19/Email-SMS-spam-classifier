@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Classifier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1.1">
+</head>
+<body>
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Spam <span>Checker</span></h1>
+            <p>Paste your email or SMS below to detect if it's spam or safe.</p>
+        </header>
+
+        <main>
+            <form id="classifier-form">
+                <div class="input-group">
+                    <textarea 
+                        id="message-input" 
+                        placeholder="Type or paste your message here..."
+                        required
+                    ></textarea>
+                </div>
+                
+                <button type="submit" id="submit-btn">
+                    <span class="btn-text">Analyze Message</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div class="result-card" id="result-card">
+                    <h2 id="result-text">Spam</h2>
+                    <p id="result-desc">This message looks suspicious.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
